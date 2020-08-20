@@ -1,0 +1,457 @@
+1. Data Structure is the way to organise and store the data so that, it can be manged easily and efefctively and also facilitate the data manipulation.
+2.There are plethora of  real world applications of data structure such as graph for findig shortest path,  stack for converting infix to postfix,graph  GPS navigation, tree for decision making
+etc.
+3.Linked list are more dynamic as compared to the fixed arrays, linked list facilitate the easy addition and deletion where as in array it is more expensive coapretivly.
+and also the linked list os non-linear data structre and array is linear and take continuous memory.
+4. struct Node
+	{
+		int data;
+		Struct Node* next;
+	}
+5. Although the both work on same principle but the major difference in singly and doubly linked list is that former one has only two filed, typically the data field
+and the next field to link to the next node, while the latter has one addition field other than data and next named as preveious which point to the previous node. Ind doubly
+there is more liablity and ease in searching the data.
+6. Stack can store the non homogeious data where as array can only store tha homogenious or same type of data, and also stacks work on LIFO where in array we can excess the element directly by 
+just knowing its index value.
+7.As priority queue cotains the priority of data and the actual data, then there should be at leat two queue needed to implement the priority queue.
+8.Mainly there are three types of tree taversal technique in tree which are preorder,posrorder, inorder traversal. And all has their priority to select the element first second and third.
+9. AS in binaray tree the data is stored comapred with the root data throughly till the depth and accordingly put into right or left child, so it is easy to search the data, as we dont have to 
+check all the nodes or child.
+10. Graph DS has various real life application such as map navigaton, finding shortest path, in computer network, social network etc.
+11. Yes we can use the binray search algorithm in linked list but we first we should be aware of the count of element.
+12.When we crated the memory heap and forget to delete it then memeory leak can occur.
+13.We can check the binrary tree as  BST if the root node is greater than left child and less then the right child, and left child node and right child should follow the same for their child nodes.
+14.Stack is best suitable for recursive operation as it remembers the caller and whom to return.  
+15.Some of the most important applications of a Stack are as follows :
+1) Expression Handling : The stack can be used to convert some infix expression into its postfix equivalent, or prefix equivalent. These postfix or prefix notations are used in computers to express some expressions. These expressions are not so much familiar to the infix expression, but they have some great advantages also. We do not need to maintain operator ordering, and parenthesis. After converting into prefix or postfix notations, we have to evaluate the expression to get the result. For that purpose, also we need the help of stack data structure.
+2) Backtracking : Backtracking is one of the algorithm designing technique. For that purpose, we dive into some way, if that way is not efficient, we come back to the previous state and go into some other paths. To get back from current state, we need to store the previous state. For that purpose, we need stack. Some examples of backtracking is finding the solution for Knight Tour problem or N-Queen Problem etc.
+3) Recursion : Recursion is a process where a function iteratively calls itself until a base case is reached. An example of recursion is finding the fatorial of a number.
+
+16. Expression : a+b*(c^d-e)^(f+g*h)-i
+Postfix : abcd^e-fgh*+^*+i-
+Prefix : +a-*b^-^cde+f*ghi
+
+17. To sort a stack using a temporary stack follow the following algorithm :
+1) Create a temporary stack say tmpStack.
+2) While input stack is NOT empty do this:
+	i) Pop an element from input stack call it temp
+	ii) while temporary stack is NOT empty and top of temporary stack is greater than temp,
+	pop from temporary stack and push it to the input stack
+	iii) push temp in temporary stack
+3) The sorted numbers are in tmpStack
+
+18. import java.util.*;
+
+public class Answer18 {
+ 
+    static Queue<Integer> reverseQueue(Queue<Integer> q) 
+    { 
+         
+        if (q.isEmpty()) 
+            return q; 
+      
+        int data = q.peek(); 
+        q.remove(); 
+        q = reverseQueue(q);  
+        q.add(data); 
+              
+        return q; 
+    } 
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 Queue<Integer> queue = new LinkedList<Integer>(); 
+		     
+		    queue.add(5); 
+		    queue.add(4); 
+		    queue.add(3); 
+		    queue.add(2); 
+		    queue.add(1); 
+		    queue = reverseQueue(queue); 
+		    for(Integer e : queue)
+		    {
+		    	System.out.println(e);
+		    }
+		
+
+	}
+
+}
+
+20. 
+public class Answer20 {
+	class Node { 
+        int data; 
+        Node next; 
+        Node(int d) 
+        { 
+            data = d; 
+            next = null; 
+        } 
+	}
+	
+        Node head;
+        void printNthFromLast(int n) 
+        { 
+            int len = 0; 
+            Node temp = head; 
+            while (temp != null) { 
+                temp = temp.next; 
+                len++; 
+            } 
+      
+            if (len < n) 
+                return; 
+      
+            temp = head; 
+            for (int i = 1; i < len - n + 1; i++) 
+                temp = temp.next; 
+      
+            System.out.println(temp.data); 
+        } 
+        public void push(int new_data) 
+        { 
+        	if(head==null)
+        	{
+        		head=new Node(new_data);
+        	}
+            Node temp=head;
+            while(temp.next!=null)
+            	temp=temp.next;
+            temp.next=new Node(new_data);
+        }
+
+	public static void main(String[] args) {
+		Answer20 llist = new Answer20(); 
+	        llist.push(20); 
+	        llist.push(4); 
+	        llist.push(15); 
+	        llist.push(35); 
+	  
+	        llist.printNthFromLast(3); 
+
+	}
+
+}
+
+
+
+21. 
+public class Answer21 {
+
+    static node head; 
+  
+    static class node { 
+  
+        int data; 
+        node next; 
+  
+        node(int d) 
+        { 
+            data = d; 
+            next = null; 
+        } 
+    } 
+  
+    /* Function to reverse the linked list */
+    void reverse(node n) 
+    { 
+        node prev = null; 
+        node current = n; 
+        node next = null; 
+        while (current != null) { 
+            next = current.next; 
+            current.next = prev; 
+            prev = current; 
+            current = next; 
+        } 
+        n = prev; 
+        node temp=n;
+        while(temp.next!=null)
+        {
+        	System.out.println(temp.data);
+        	temp=temp.next;
+        }
+        
+    } 
+    public void push(int new_data) 
+    { 
+    	if(head==null)
+    	{
+    		head=new node(new_data);
+    	}
+        node temp=head;
+        while(temp.next!=null)
+        	temp=temp.next;
+        temp.next=new node(new_data);
+    }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Answer21 llist = new Answer21(); 
+		llist.push(1);
+		llist.push(2);
+		llist.push(3);
+		llist.push(4);
+		llist.push(5);
+		llist.reverse(llist.head);
+
+	}
+
+} 
+
+19.import java.util.*;
+
+public class Answer19 {
+ 
+	static void reverseQueueFirstKElements(int k, Queue<Integer> queue) 
+    { 
+        if (queue.isEmpty() == true
+            || k > queue.size()) 
+            return; 
+        if (k <= 0) 
+            return; 
+  
+        Stack<Integer> stack = new Stack<Integer>(); 
+  
+        // Push the first K elements into a Stack 
+        for (int i = 0; i < k; i++) { 
+            stack.push(queue.peek()); 
+            queue.remove(); 
+        } 
+  
+        // Enqueue the contents of stack 
+        // at the back of the queue 
+        while (!stack.empty()) { 
+            queue.add(stack.peek()); 
+            stack.pop(); 
+        } 
+  
+        // Remove the remaining elements and enqueue 
+        // them at the end of the Queue 
+        for (int i = 0; i < queue.size() - k; i++) { 
+            queue.add(queue.peek()); 
+            queue.remove(); 
+        } 
+    } 
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 Queue<Integer> queue = new LinkedList<Integer>(); 
+		     
+		    queue.add(5); 
+		    queue.add(4); 
+		    queue.add(3); 
+		    queue.add(2); 
+		    queue.add(1); 
+		    reverseQueueFirstKElements(2, queue);
+		    for(Integer e : queue)
+		    {
+		    	System.out.println(e);
+		    }
+		
+
+	}
+
+}
+22. 
+import java.util.*;
+
+public class Answer22 {
+	static void changeArr(int[] input) 
+    { 
+        
+        int newArray[] 
+            = Arrays 
+                  .copyOfRange(input, 
+                               0, 
+                               input.length); 
+  
+        
+        Arrays.sort(newArray); 
+        int i; 
+        
+        Map<Integer, Integer> ranks 
+            = new HashMap<>(); 
+  
+        int rank = 1; 
+  
+        for (int index = 0; 
+             index < newArray.length; 
+             index++) { 
+  
+            int element = newArray[index]; 
+  
+           
+            if (ranks.get(element) == null) { 
+  
+                ranks.put(element, rank); 
+                rank++; 
+            } 
+        } 
+        for (int index = 0; 
+             index < input.length; 
+             index++) { 
+  
+            int element = input[index]; 
+            input[index] 
+                = ranks.get(input[index]); 
+         
+        } 
+    } 
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENter size of input array");
+		int n= sc.nextInt();
+		int array[]=new int[n];
+		System.out.println("Enter Array elements");
+		for(int i=0;i<n;i++)
+		{
+			array[i]=sc.nextInt();
+		}
+		changeArr(array);
+		System.out.println("required array is\n ");
+		for(int e : array)
+		{
+			System.out.print(e+" ");
+		}
+
+	}
+
+}
+
+23. 
+
+import java.util.*;
+class Graph 
+{ 
+    private int V;   // No. of vertices 
+    private LinkedList<Integer> adj[]; //Adjacency List 
+  
+    
+    Graph(int v) 
+    { 
+        V = v; 
+        adj = new LinkedList[v]; 
+        for (int i=0; i<v; ++i) 
+            adj[i] = new LinkedList(); 
+    } 
+  
+    // Function to add an edge into the graph 
+    void addEdge(int v,int w) 
+    { 
+        adj[v].add(w); 
+        adj[w].add(v); 
+    } 
+  
+     
+    Boolean isCyclicUtil(int v, Boolean visited[], int parent) 
+    { 
+        // Mark the current node as visited 
+        visited[v] = true; 
+        Integer i; 
+  
+        // Recur for all the vertices adjacent to this vertex 
+        Iterator<Integer> it = adj[v].iterator(); 
+        while (it.hasNext()) 
+        { 
+            i = it.next(); 
+  
+            // If an adjacent is not visited, then recur for 
+            // that adjacent 
+            if (!visited[i]) 
+            { 
+                if (isCyclicUtil(i, visited, v)) 
+                    return true; 
+            } 
+  
+            // If an adjacent is visited and not parent of  
+            // current vertex, then there is a cycle. 
+            else if (i != parent) 
+               return true; 
+        } 
+        return false; 
+    } 
+  
+    
+    Boolean isTree() 
+    { 
+        // Mark all the vertices as not visited and not part 
+        // of recursion stack 
+        Boolean visited[] = new Boolean[V]; 
+        for (int i = 0; i < V; i++) 
+            visited[i] = false; 
+  
+        // The call to isCyclicUtil serves multiple purposes 
+        // It returns true if graph reachable from vertex 0 
+        // is cyclcic. It also marks all vertices reachable 
+        // from 0. 
+        if (isCyclicUtil(0, visited, -1)) 
+            return false; 
+  
+        // If we find a vertex which is not reachable from 0 
+        // (not marked by isCyclicUtil(), then we return false 
+        for (int u = 0; u < V; u++) 
+            if (!visited[u]) 
+                return false; 
+  
+        return true; 
+    } 
+}
+public class Answer23 {
+	public static void main(String[] args) {
+		 // Create a graph given in the above diagram 
+        Graph g1 = new Graph(5); 
+        g1.addEdge(1, 0); 
+        g1.addEdge(0, 2); 
+        g1.addEdge(0, 3); 
+        g1.addEdge(3, 4); 
+        if (g1.isTree()) 
+            System.out.println("Graph is Tree"); 
+        else
+            System.out.println("Graph is not Tree"); 
+  
+        Graph g2 = new Graph(5); 
+        g2.addEdge(1, 0); 
+        g2.addEdge(0, 2); 
+        g2.addEdge(2, 1); 
+        g2.addEdge(0, 3); 
+        g2.addEdge(3, 4); 
+  
+        if (g2.isTree()) 
+            System.out.println("Graph is Tree"); 
+        else
+            System.out.println("Graph is not Tree"); 
+	}
+
+} 
+
+24. 
+import java.util.*;
+public class Answer24 {
+	static int kthsmallest(int arr[],int k)
+	{
+		Arrays.sort(arr);
+		return arr[k-1];
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENter size");
+		int n=sc.nextInt();
+		int array[]=new int[n];
+		System.out.println("ENter array");
+		for(int i=0;i<n;i++)
+		{
+			array[i]=sc.nextInt();
+		}
+		System.out.println("Enter k");
+		int K=sc.nextInt();
+		System.out.println(kthsmallest(array,K));
+	}
+
+}
+ 
