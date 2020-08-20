@@ -1,37 +1,48 @@
-1. Data Structure is the way to organise and store the data so that, it can be manged easily and efefctively and also facilitate the data manipulation.
-2.There are plethora of  real world applications of data structure such as graph for findig shortest path,  stack for converting infix to postfix,graph  GPS navigation, tree for decision making
+Question 1. Data Structure is the way to organise and store the data so that, it can be manged easily and efefctively and also facilitate the data manipulation.
+Question 2.There are plethora of  real world applications of data structure such as graph for findig shortest path,  stack for converting infix to postfix,graph  GPS navigation, tree for decision making
 etc.
-3.Linked list are more dynamic as compared to the fixed arrays, linked list facilitate the easy addition and deletion where as in array it is more expensive coapretivly.
+Question 3.Linked list are more dynamic as compared to the fixed arrays, linked list facilitate the easy addition and deletion where as in array it is more expensive coapretivly.
 and also the linked list os non-linear data structre and array is linear and take continuous memory.
-4. struct Node
+
+Question 4. struct Node
 	{
 		int data;
 		Struct Node* next;
 	}
-5. Although the both work on same principle but the major difference in singly and doubly linked list is that former one has only two filed, typically the data field
+	
+Question 5. Although the both work on same principle but the major difference in singly and doubly linked list is that former one has only two filed, typically the data field
 and the next field to link to the next node, while the latter has one addition field other than data and next named as preveious which point to the previous node. Ind doubly
 there is more liablity and ease in searching the data.
-6. Stack can store the non homogeious data where as array can only store tha homogenious or same type of data, and also stacks work on LIFO where in array we can excess the element directly by 
+
+Question 6. Stack can store the non homogeious data where as array can only store tha homogenious or same type of data, and also stacks work on LIFO where in array we can excess the element directly by 
 just knowing its index value.
-7.As priority queue cotains the priority of data and the actual data, then there should be at leat two queue needed to implement the priority queue.
-8.Mainly there are three types of tree taversal technique in tree which are preorder,posrorder, inorder traversal. And all has their priority to select the element first second and third.
-9. AS in binaray tree the data is stored comapred with the root data throughly till the depth and accordingly put into right or left child, so it is easy to search the data, as we dont have to 
+
+Question 7.As priority queue cotains the priority of data and the actual data, then there should be at leat two queue needed to implement the priority queue.
+
+Question 8.Mainly there are three types of tree taversal technique in tree which are preorder,posrorder, inorder traversal. And all has their priority to select the element first second and third.
+
+Question 9. AS in binaray tree the data is stored comapred with the root data throughly till the depth and accordingly put into right or left child, so it is easy to search the data, as we dont have to 
 check all the nodes or child.
-10. Graph DS has various real life application such as map navigaton, finding shortest path, in computer network, social network etc.
-11. Yes we can use the binray search algorithm in linked list but we first we should be aware of the count of element.
-12.When we crated the memory heap and forget to delete it then memeory leak can occur.
-13.We can check the binrary tree as  BST if the root node is greater than left child and less then the right child, and left child node and right child should follow the same for their child nodes.
-14.Stack is best suitable for recursive operation as it remembers the caller and whom to return.  
-15.Some of the most important applications of a Stack are as follows :
+
+Question 10. Graph DS has various real life application such as map navigaton, finding shortest path, in computer network, social network etc.
+
+Question 11. Yes we can use the binray search algorithm in linked list but we first we should be aware of the count of element.
+
+Question 12.When we crated the memory heap and forget to delete it then memeory leak can occur.
+
+Question 13.We can check the binrary tree as  BST if the root node is greater than left child and less then the right child, and left child node and right child should follow the same for their child nodes.
+
+Question 14.Stack is best suitable for recursive operation as it remembers the caller and whom to return.  
+Question 15.Some of the most important applications of a Stack are as follows :
 1) Expression Handling : The stack can be used to convert some infix expression into its postfix equivalent, or prefix equivalent. These postfix or prefix notations are used in computers to express some expressions. These expressions are not so much familiar to the infix expression, but they have some great advantages also. We do not need to maintain operator ordering, and parenthesis. After converting into prefix or postfix notations, we have to evaluate the expression to get the result. For that purpose, also we need the help of stack data structure.
 2) Backtracking : Backtracking is one of the algorithm designing technique. For that purpose, we dive into some way, if that way is not efficient, we come back to the previous state and go into some other paths. To get back from current state, we need to store the previous state. For that purpose, we need stack. Some examples of backtracking is finding the solution for Knight Tour problem or N-Queen Problem etc.
 3) Recursion : Recursion is a process where a function iteratively calls itself until a base case is reached. An example of recursion is finding the fatorial of a number.
 
-16. Expression : a+b*(c^d-e)^(f+g*h)-i
+Question 16. Expression : a+b*(c^d-e)^(f+g*h)-i
 Postfix : abcd^e-fgh*+^*+i-
 Prefix : +a-*b^-^cde+f*ghi
 
-17. To sort a stack using a temporary stack follow the following algorithm :
+Question 17. To sort a stack using a temporary stack follow the following algorithm :
 1) Create a temporary stack say tmpStack.
 2) While input stack is NOT empty do this:
 	i) Pop an element from input stack call it temp
@@ -40,7 +51,7 @@ Prefix : +a-*b^-^cde+f*ghi
 	iii) push temp in temporary stack
 3) The sorted numbers are in tmpStack
 
-18. import java.util.*;
+Question 18. import java.util.*;
 
 public class Answer18 {
  
@@ -78,7 +89,7 @@ public class Answer18 {
 
 }
 
-20. 
+Question 20. 
 public class Answer20 {
 	class Node { 
         int data; 
@@ -136,7 +147,7 @@ public class Answer20 {
 
 
 
-21. 
+Question 21. 
 public class Answer21 {
 
     static node head; 
@@ -200,7 +211,9 @@ public class Answer21 {
 
 } 
 
-19.import java.util.*;
+Question 19.
+
+import java.util.*;
 
 public class Answer19 {
  
@@ -254,7 +267,7 @@ public class Answer19 {
 	}
 
 }
-22. 
+Question 22. 
 import java.util.*;
 
 public class Answer22 {
@@ -322,7 +335,7 @@ public class Answer22 {
 
 }
 
-23. 
+Question 23. 
 
 import java.util.*;
 class Graph 
@@ -428,7 +441,7 @@ public class Answer23 {
 
 } 
 
-24. 
+Question 24. 
 import java.util.*;
 public class Answer24 {
 	static int kthsmallest(int arr[],int k)
